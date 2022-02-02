@@ -13,6 +13,7 @@ const students =[]
 app.post('/', (request, response) => {
     console.log(request.body)
     students.push(request.body)
+    response.send()
 })
 
 app.get('http://localhost:4200', (request, response) => {
