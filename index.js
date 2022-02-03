@@ -16,7 +16,7 @@ app.post('/', (request, response) => {
     response.send()
 })
 
-app.get('http://localhost:4200', (request, response) => {
+app.get('/students', (request, response) => {
     response.send(students)
 })
 
