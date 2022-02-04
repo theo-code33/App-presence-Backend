@@ -35,6 +35,18 @@ app.post('/', (request, response) => {
     response.send({id})
 })
 
+app.get('/class/:id', (request, response) => {
+    const userId = request.params.id
+    const studentClass = students[userId].class
+    const result = students.filter(students => studentClass == students.class)
+    response.send(result)
+})
+
+app.get('/student-by-id/:id', (request,response) => {
+    const id = request.params.id
+    response.send(students[id]);
+})
+
 app.get('/students', (request, response) => {
     response.send(students)
 })
