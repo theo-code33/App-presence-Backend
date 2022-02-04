@@ -38,8 +38,15 @@ app.post('/', (request, response) => {
 app.get('/class/:id', (request, response) => {
     const userId = request.params.id
     const studentClass = students[userId].class
-    const result = students.filter(students => studentClass == students.class)
+    const result = students.filter(student => studentClass == student.class)
     response.send(result)
+})
+
+app.get('/find-by-class-name/:classe', (request,response)=> {
+    const classe = request.params.classe
+    const result = students.filter(students => classe == students.class)
+    response.send(result)
+    console.log(result);
 })
 
 app.get('/student-by-id/:id', (request,response) => {
