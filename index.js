@@ -44,9 +44,13 @@ app.get('/class/:id', (request, response) => {
 
 app.get('/find-by-class-name/:classe', (request,response)=> {
     const classe = request.params.classe
-    const result = students.filter(students => classe == students.class)
-    response.send(result)
-    console.log(result);
+    if (classe == 'All-classes') {
+        const result = students
+        response.send(result)
+    }else{
+        const result = students.filter(students => classe == students.class)
+        response.send(result)
+    }
 })
 
 app.get('/student-by-id/:id', (request,response) => {
